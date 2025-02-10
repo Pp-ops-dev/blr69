@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Payment Options 💳</h1>
+    </header>
+
+    <div class="payment-container">
+        <h2>Delivery Address 📍</h2>
+        <p id="deliveryAddress"></p>
+
+        <h2>Select Payment Method</h2>
+        <form id="paymentForm">
+            <label>
+                <input type="radio" name="paymentMethod" value="Credit Card" required> Credit Card
+            </label><br>
+            <label>
+                <input type="radio" name="paymentMethod" value="Debit Card"> Debit Card
+            </label><br>
+            <label>
+                <input type="radio" name="paymentMethod" value="UPI"> UPI (Google Pay, PhonePe)
+            </label><br>
+            <label>
+                <input type="radio" name="paymentMethod" value="Cash on Delivery"> Cash on Delivery
+            </label><br>
+            <button type="submit">Confirm Payment</button>
+        </form>
+    </div>
+
+    <script>
+        let address = JSON.parse(localStorage.getItem("deliveryAddress"));
+        if (address) {
+            document.getElementById("deliveryAddress").innerHTML = `
+                <strong>${address.fullName}</strong> <br>
+                ${address.street}, ${address.city}, ${address.state} - ${address.pincode} <br>
+                ${address.landmark ? "Landmark: " + address.landmark + "<br>" : ""}
+                📞 ${address.phone}
+            `;
+        } else {
+            document.getElementById("deliveryAddress").innerText = "No address provided";
+        }
+
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let selectedMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            alert("Payment method selected: " + selectedMethod + ". Your order has been placed!");
+            localStorage.removeItem("cart");
+            localStorage.removeItem("deliveryAddress");
+            window.location.href = "home.html";
+        });
+    </script>
+
+</body>
+</html>

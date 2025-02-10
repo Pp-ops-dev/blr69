@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Your Shopping Cart 🛒</h1>
+        <nav>
+            <div class="cart-buttons">
+                <!-- <button id="logoutBtn" class="logout-button">Logout</button> -->
+                <a href="index.html" id="logoutBtn" class="logout-btn">Logout</a>
+
+            </div>
+        </nav>
+    </header>
+
+    <div id="cartItems"></div>
+
+    <!-- Address Form (Styled Box) -->
+    <div class="address-box">
+        <h2>Enter Your Delivery Address 📍</h2>
+        <form id="addressForm">
+            <label>Full Name:</label>
+            <input type="text" id="fullName" required placeholder="Enter your full name">
+
+            <label>Phone Number:</label>
+            <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number">
+
+            <label>Street Address:</label>
+            <input type="text" id="street" required placeholder="House No, Street Name">
+
+            <label>City:</label>
+            <input type="text" id="city" required placeholder="Enter city">
+
+            <label>State:</label>
+            <input type="text" id="state" required placeholder="Enter state">
+
+            <label>PIN Code:</label>
+            <input type="text" id="pincode" required pattern="[0-9]{6}" placeholder="Enter 6-digit PIN code">
+
+            <label>Landmark (Optional):</label>
+            <input type="text" id="landmark" placeholder="E.g. Near mall, school, etc.">
+
+            <button type="submit" class="green-button">Proceed to Payment</button>
+        </form>
+    </div>
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || {};
+            let cartHTML = "<h2>Cart Items</h2>";
+
+            if (Object.keys(cart).length === 0) {
+                cartHTML += "<p>Your cart is empty.</p>";
+            } else {
+                cartHTML += "<ul>";
+                let totalPrice = 0;
+
+                Object.keys(cart).forEach(key => {
+                    let item = cart[key];
+                    totalPrice += item.price * item.quantity;
+
+                    cartHTML += `
+                        <li>
+                            <img src="${item.img}" width="50">
+                            <strong>${item.title}</strong> - ₹${item.price} x ${item.quantity}
+                            <button onclick="removeItem('${key}')">❌ Remove</button>
+                        </li>
+                    `;
+                });
+
+                cartHTML += `</ul><h3>Total Price: ₹${totalPrice}</h3>`;
+            }
+
+            document.getElementById("cartItems").innerHTML = cartHTML;
+        }
+
+        function removeItem(productKey) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || {};
+            delete cart[productKey];
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+        }
+
+        document.getElementById("addressForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let fullName = document.getElementById("fullName").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let street = document.getElementById("street").value.trim();
+            let city = document.getElementById("city").value.trim();
+            let state = document.getElementById("state").value.trim();
+            let pincode = document.getElementById("pincode").value.trim();
+            let landmark = document.getElementById("landmark").value.trim();
+
+            if (!fullName || !phone || !street || !city || !state || !pincode) {
+                alert("Please fill all required fields!");
+                return;
+            }
+
+            let address = {
+                fullName, phone, street, city, state, pincode, landmark
+            };
+
+            localStorage.setItem("deliveryAddress", JSON.stringify(address));
+            window.location.href = "payment.html"; // Redirect to payment
+        });
+
+        loadCart();
+    </script>
+
+</body>
+</html>
