@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           
             const validUsername = "admin";
-            const validPassword = "password123";
+            const validPassword = "admin";
 
             
             const username = document.getElementById("username").value;
@@ -47,5 +47,17 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector("#footer").scrollIntoView({ behavior: "smooth" });
         });
     }
+
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+    
+        // Show an alert message
+        alert("Thanks for contacting us! We will get back to you soon.");
+    
+        // Optionally, clear the form after submission
+        document.getElementById("contactForm").reset();
+    });
+    
 });
 
