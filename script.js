@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            // Hardcoded credentials
+          
             const validUsername = "admin";
             const validPassword = "password123";
 
-            // Get entered values
+            
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
             const errorMessage = document.getElementById("error-message");
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Redirect if not authenticated
+    
     if (window.location.pathname.includes("home.html")) {
         const isAuthenticated = localStorage.getItem("isAuthenticated");
         if (!isAuthenticated) {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Smooth scrolling for contact link
+    
     const contactLink = document.querySelector("a[href='#footer']");
     if (contactLink) {
         contactLink.addEventListener("click", function (e) {
