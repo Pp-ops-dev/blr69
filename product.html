@@ -29,25 +29,25 @@
         const products = {
             wild_honey: {
                 title: "Wild Forest Honey",
-                img: "wild_honey.jpg",
+                img: "images/wildForestHoney.jpeg",
                 description: "Collected from deep forests, 100% organic and packed with antioxidants.",
                 price: 500
             },
             multiflora_honey: {
                 title: "Multiflora Honey",
-                img: "multiflora_honey.jpg",
+                img: "images/multifloraHoney.jpeg",
                 description: "A delicious blend of nectar from various flowers, giving a rich, complex taste.",
                 price: 450
             },
             organic_honey: {
                 title: "Pure Organic Honey",
-                img: "organic_honey.jpg",
+                img: "images/organicHoney.jpeg",
                 description: "Raw, unfiltered honey straight from beekeepers, loaded with natural enzymes.",
                 price: 600
             },
             flower_honey: {
                 title: "Flower Honey",
-                img: "flower_honey.jpg",
+                img: "images/flowerHoney.jpeg",
                 description: "Extracted from various wildflowers, known for its medicinal properties.",
                 price: 550
             }
@@ -82,7 +82,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <button onclick="addToCart('${productName}')">Add to Cart 🛒</button>
+                            <a href='cart.html'><button onclick="addToCart('${productName}')">Add to Cart 🛒</button></a>
                         </td>
                     </tr>
                 </table>
