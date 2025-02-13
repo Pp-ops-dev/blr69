@@ -1,0 +1,238 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 5px 30px;
+    color: white;
+    position: fixed;
+    top: 0;
+    min-width: 100vmax;
+    box-sizing: border-box;
+  }
+
+  .logo{
+    font-size: 1.3rem;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+    font-size: 0.9rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #ffcc00;
+  }
+  
+  #logoutBtn {
+    background: red;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .product-container{
+    margin-top: 4rem;
+  }
+  .product {
+    display: block;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+    background: white;
+  }
+  
+  .product img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .product:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  /* Global Styles */
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+  }
+  
+
+  .contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #ffcc00, #ff9900);
+    padding: 40px 20px;
+  }
+  
+  .contact-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+  }
+  
+  .contact-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .contact-container p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-details p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .contact-details a {
+    color: #ff6600;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .contact-details a:hover {
+    color: #cc5500;
+    text-decoration: underline;
+  }
+  
+  /* Form Styles */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #ff6600;
+    box-shadow: 0px 4px 8px rgba(255, 102, 0, 0.2);
+  }
+  
+  /* Button */
+  .contact-form button {
+    background: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .contact-form button:hover {
+    background: #cc5500;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .contact-container {
+      padding: 20px;
+      width: 90%;
+    }
+  }
+  
+
+  
+  footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+    max-width: 250px;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .product-card h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .product-card p {
+    font-size: 16px;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
