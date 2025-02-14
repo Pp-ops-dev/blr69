@@ -1,13 +1,16 @@
 import { useState } from "react";
 import '../styles/login.css';
+import {useNavigate} from 'react-router-dom'
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Logging in with:", { username, password });
+    navigate('/home')
   };
 
   return (
