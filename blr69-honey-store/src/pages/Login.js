@@ -6,6 +6,7 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const nav = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,8 +44,8 @@ const LoginPage = () => {
           </div>
           <button type="submit" className="login-btn">Login</button>
           <div className="links">
-            <a href="forgot-password.html">Forgot Password?</a>
-            <a href="signup.html">Sign Up</a>
+            <button>Forgot Password?</button>
+            <button onClick={() => nav('/signup')}>Sign Up</button>
           </div>
         </form>
       </div>

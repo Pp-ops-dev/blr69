@@ -126,15 +126,19 @@ body {
     font-size: 14px;
 }
 
-.links a {
+.links button {
     color: #00eaff;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    text-decoration: none;
+    border: none;
 }
 
-.links a:hover {
+.links button:hover {
     color: #4facfe;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 /* Responsive */
